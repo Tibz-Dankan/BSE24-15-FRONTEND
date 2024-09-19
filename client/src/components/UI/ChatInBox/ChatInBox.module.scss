@@ -1,0 +1,272 @@
+.chat-in-box {
+  background-color: var(--color-grey-dark-2);
+  // font-size: 1.8rem;
+  font-weight: 40rem;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  &__header {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
+    z-index: 10;
+  }
+
+  &__message {
+    background-image: linear-gradient(
+        to bottom,
+        hsla(189.3, 84.7%, 28.2%, 0.2),
+        hsla(210, 10.8%, 14.5%, 0.6),
+        hsla(210, 10.8%, 14.5%, 0.6),
+        hsla(189.3, 84.7%, 28.2%, 0.4)
+      ),
+      url("../../../assets/bg-image-eight.jpeg");
+    background-size: cover;
+    background-color: var(--color-grey-dark-4);
+    color: var(--color-grey-light-3);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 3.2rem 1.2rem;
+    margin: 5.2rem 0rem;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1300px) {
+      height: 90vh;
+      padding-bottom: 9.6rem;
+    }
+
+    %message {
+      padding: 0.2rem 0.4rem;
+      margin: 0rem 4.8rem;
+      border-radius: 0.8rem;
+      line-height: 1.6rem;
+      color: var(--color-grey-light-4);
+      transition: 0.35s;
+
+      @media screen and (min-width: 1180px) {
+        margin: 0rem 8rem;
+      }
+      @media screen and (max-width: 750px) {
+        margin: 0rem 2.4rem;
+      }
+      @media screen and (max-width: 600px) {
+        margin: 0rem 4.8rem;
+      }
+      @media screen and (max-width: 400px) {
+        margin: 0rem 2.4rem;
+      }
+    }
+    .has-unique-day {
+      margin-top: 4.8rem;
+      position: relative;
+      &__container {
+        position: absolute;
+        top: -3.2rem;
+        left: 0rem;
+        right: 0rem;
+        text-align: center;
+        &--day {
+          font-size: 1.2rem;
+          padding: 0.8rem;
+          color: var(--color-grey-light-2);
+          background-color: var(--color-grey-dark-4);
+          border-radius: 0.4rem;
+          box-shadow: var(--shadow-dark);
+        }
+      }
+    }
+
+    &--sender {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      @extend %message;
+      .content {
+        padding: 1.2rem 1.2rem 1.6rem 1.2rem;
+        background-color: var(--color-primary-dark);
+        position: relative;
+        min-width: 6.4rem;
+        width: auto;
+        max-width: 32rem;
+        min-height: 3.2rem;
+        border-radius: 0.4rem;
+
+        &::before {
+          display: block;
+          content: "";
+          background-color: var(--color-primary-dark);
+          position: absolute;
+          top: 0rem;
+          right: 0rem;
+          left: 50%;
+          bottom: 60%;
+          transform: skewX(-40deg);
+        }
+        &--text {
+          position: relative;
+          font-size: 1.6rem;
+        }
+        &__date {
+          // &--date {
+          // }
+          &--time {
+            font-size: 1.2rem;
+            position: absolute;
+            right: 0.4rem;
+            bottom: 0rem;
+          }
+        }
+      }
+    }
+    &--recipient {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      @extend %message;
+      .content {
+        background-color: var(--color-grey-dark-3);
+        padding: 1.2rem 1.2rem 1.6rem 1.2rem;
+        max-width: auto;
+        position: relative;
+        min-width: 6.4rem;
+        width: auto;
+        max-width: 32rem;
+        min-height: 3.2rem;
+        border-radius: 0.4rem;
+        &::before {
+          display: block;
+          content: "";
+          background-color: var(--color-grey-dark-3);
+          position: absolute;
+          top: 0rem;
+          right: 50%;
+          left: 0rem;
+          bottom: 60%;
+          transform: skewX(40deg);
+        }
+        &--text {
+          position: relative;
+          font-size: 1.6rem;
+        }
+        &__date {
+          //     &--date {
+          //     }
+          &--time {
+            font-size: 1.2rem;
+            position: absolute;
+            right: 0.4rem;
+            bottom: 0rem;
+          }
+        }
+      }
+    }
+
+    // SCROLLBAR STYLES FOR WEBKIT BROWSERS
+    &::-webkit-scrollbar {
+      width: 0.8rem;
+      height: auto;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        to bottom,
+        var(--color-grey-dark-3),
+        var(--color-primary-dark),
+        var(--color-grey-dark-3)
+      );
+      border-radius: 0.8rem;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--color-grey-dark-2);
+    }
+    // SCROLLBAR STYLES FOR FIREFOX
+    &::-moz-scrollbar {
+      width: 0.8rem;
+      height: auto;
+    }
+    &::-moz-scrollbar-thumb {
+      background: linear-gradient(
+        to bottom,
+        var(--color-grey-dark-3),
+        var(--color-primary-dark),
+        var(--color-grey-dark-3)
+      );
+      border-radius: 0.8rem;
+    }
+    &::-moz-scrollbar-track {
+      background: var(--color-grey-dark-2);
+    }
+    // SCROLLBAR STYLES FOR INTERNET EXPLORER
+    .ie ::-ms-thumb {
+      background: linear-gradient(
+        to bottom,
+        var(--color-grey-dark-3),
+        var(--color-primary-dark),
+        var(--color-grey-dark-3)
+      );
+      border-radius: 0.8rem;
+    }
+    .ie ::-ms-track {
+      background: var(--color-grey-dark-2);
+    }
+  }
+  &__form {
+    background-color: var(--color-grey-dark-3);
+    position: absolute;
+    left: 0rem;
+    right: 0rem;
+    bottom: 0rem;
+    padding: 1.2rem 1.2rem;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 450px) {
+      padding: 1.2rem 0.4rem;
+    }
+    &__group {
+      display: inherit;
+      align-items: center;
+      width: 90%;
+      @media (max-width: 450px) {
+        width: 96%;
+      }
+      &__input {
+        flex: 1;
+        padding: 1.6rem 0.8rem;
+        font-size: 1.6rem;
+        font-weight: 30rem;
+        background-color: var(--color-grey-dark-4);
+        color: var(--color-grey-light-1);
+        border: 0.2rem solid var(--color-grey-dark-4);
+        border-radius: 1.2rem;
+        &:focus {
+          outline: none;
+          transition: 0.35s;
+        }
+      }
+      &__submit {
+        color: var(--color-grey-light-1);
+        display: grid;
+        place-items: center;
+        background-color: var(--color-primary-dark);
+        width: 4.8rem;
+        height: 4.8rem;
+        border-radius: 50%;
+        margin-left: 0.8rem;
+        &:hover {
+          cursor: pointer;
+        }
+        @media (max-width: 300px) {
+          margin-left: 0.4rem;
+        }
+        @media (max-width: 280px) {
+          background-color: var(--color-grey-dark-3);
+        }
+      }
+    }
+  }
+}

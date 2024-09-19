@@ -1,0 +1,269 @@
+.loading-spinner {
+  height: 3.8rem;
+  border-radius: 0.4rem;
+  margin-bottom: 2.4rem;
+  background-color: var(--color-primary-dark);
+  color: var(--color-grey-light-2);
+  position: relative;
+  &::after {
+    content: "";
+    height: 2.4rem;
+    width: 2.4rem;
+    background-color: var(--color-primary-dark);
+    border: 0.4rem solid var(--color-grey-light-2);
+    border-bottom: 0.4rem solid var(--color-primary-dark);
+    border-radius: 50%;
+    position: absolute;
+    top: 0.7rem;
+    left: 45%;
+    animation: spinner 0.8s linear infinite;
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.user-skeleton {
+  padding: 0rem 2.4rem;
+
+  &__content {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-basis: 1;
+    padding: 0.8rem;
+    border: 0.1rem solid var(--color-grey-dark-3);
+    border-radius: 0.4rem;
+    margin-bottom: 0.8rem;
+
+    %animate-image-placeholder {
+      --bg-color-variant: hsl(210, 10.3%, 15%);
+
+      &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0rem;
+        bottom: 0rem;
+        left: 0rem;
+        right: 0rem;
+        border-radius: 50%;
+
+        animation: change-bg-color 0.8s ease-in-out infinite;
+        @keyframes change-bg-color {
+          0% {
+            background-color: var(--color-grey-dark-3);
+            opacity: 0%;
+          }
+          100% {
+            background-color: var(--bg-color-variant);
+            opacity: 100%;
+          }
+        }
+      }
+    }
+
+    %animate-user-data {
+      --bg-color-variant: hsl(210, 10.3%, 15%);
+      &::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0rem;
+        bottom: 0rem;
+        left: 0rem;
+        right: 0rem;
+        border-radius: 0.8rem;
+
+        animation: change-bg-color 0.8s ease-in-out infinite;
+        @keyframes change-bg-color {
+          0% {
+            background-color: var(--color-grey-dark-3);
+            opacity: 0%;
+          }
+          100% {
+            background-color: var(--bg-color-variant);
+            opacity: 100%;
+          }
+        }
+      }
+    }
+
+    .image-placeholder {
+      width: 4.6rem;
+      height: 4.6rem;
+      background-color: var(--color-grey-dark-3);
+      border-radius: 50%;
+      margin-right: 0.8rem;
+      position: relative;
+      @extend %animate-image-placeholder;
+    }
+
+    .user__data-placeholder {
+      flex-grow: 2;
+      height: 4.6rem;
+      background-color: var(--color-grey-dark-3);
+      border-radius: 0.8rem;
+      position: relative;
+      @extend %animate-user-data;
+    }
+  }
+}
+
+%animate-recipient-message {
+  animation: change-bg-color 0.8s ease-in-out infinite;
+  @keyframes change-bg-color {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 80%;
+    }
+  }
+  &::before {
+    display: block;
+    content: "";
+    background-color: var(--color-grey-dark-3);
+    position: absolute;
+    top: 0rem;
+    right: 50%;
+    left: 0rem;
+    bottom: 60%;
+    transform: skewX(40deg);
+    animation: change-bg-color 0.8s ease-in-out infinite;
+    @keyframes change-bg-color {
+      0% {
+        opacity: 0%;
+      }
+      100% {
+        opacity: 80%;
+      }
+    }
+  }
+}
+
+%animate-sender-message {
+  animation: change-bg-color 0.8s ease-in-out infinite;
+  @keyframes change-bg-color {
+    0% {
+      background-color: var(--color-primary);
+      opacity: 0%;
+    }
+    100% {
+      opacity: 80%;
+    }
+  }
+  &::before {
+    display: block;
+    content: "";
+    background-color: var(--color-primary-dark);
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    left: 50%;
+    bottom: 60%;
+    transform: skewX(-40deg);
+    animation: change-bg-color 0.8s ease-in-out infinite;
+    @keyframes change-bg-color {
+      0% {
+        background-color: var(--color-primary);
+        opacity: 0%;
+      }
+      100% {
+        opacity: 80%;
+      }
+    }
+  }
+}
+
+.messages-skeleton {
+  .messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+
+    %message {
+      margin: 0rem 4.8rem;
+      border-radius: 0.8rem;
+      position: relative;
+      width: 19.2rem;
+      height: 4.8rem;
+      border-radius: 0.4rem;
+      margin-top: 0.8rem;
+      &:last-child {
+        margin-bottom: 2.4rem;
+      }
+
+      @media screen and (min-width: 1180px) {
+        margin: 0rem 8rem;
+      }
+      @media screen and (max-width: 750px) {
+        margin: 0rem 2.4rem;
+      }
+      @media screen and (max-width: 600px) {
+        margin: 0rem 4.8rem;
+      }
+      @media screen and (max-width: 400px) {
+        margin: 0rem 2.4rem;
+      }
+    }
+
+    &__recipient {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+
+      &--recipient {
+        @extend %message;
+        @extend %animate-recipient-message;
+        background-color: var(--color-grey-dark-3);
+        &::before {
+          display: block;
+          content: "";
+          background-color: var(--color-grey-dark-3);
+          position: absolute;
+          top: 0rem;
+          right: 50%;
+          left: 0rem;
+          bottom: 60%;
+          transform: skewX(40deg);
+        }
+      }
+    }
+
+    &__sender {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+
+      &--sender {
+        @extend %message;
+        @extend %animate-sender-message;
+        background-color: var(--color-primary-dark);
+        &::before {
+          display: block;
+          content: "";
+          background-color: var(--color-primary-dark);
+          position: absolute;
+          top: 0rem;
+          right: 0rem;
+          left: 50%;
+          bottom: 60%;
+          transform: skewX(-40deg);
+        }
+      }
+    }
+    // End
+  }
+}

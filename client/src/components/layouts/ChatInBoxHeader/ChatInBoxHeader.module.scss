@@ -1,0 +1,66 @@
+.header {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-grey-dark-3);
+  color: var(--color-grey-dark-1);
+  padding: 0.65rem 1.8rem;
+  position: relative;
+  @media screen and (min-width: 800px) {
+    padding: 0.65rem 3.2rem;
+  }
+  &__chat-mate {
+    display: flex;
+    align-items: center;
+    &__nav {
+      @media screen and (min-width: 601px) {
+        display: none;
+      }
+      &__link {
+        text-decoration: none;
+        color: var(--color-grey-dark-1);
+        &--icon {
+          margin-right: 0.8rem;
+          @media screen and (max-width: 300px) {
+            margin-right: 0.4rem;
+          }
+        }
+      }
+    }
+    &__data {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      .image-container {
+        display: grid;
+        place-items: center;
+        width: 4.6rem;
+        height: 4.6rem;
+        border-radius: 50%;
+        margin-bottom: 0.8rem;
+        background-color: var(--color-grey-dark-4);
+        &--image {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      &--name {
+        margin-left: 0.8rem;
+        margin-top: -0.8rem;
+        @media screen and (max-width: 400px) {
+          margin-left: 0.4rem;
+        }
+      }
+    }
+  }
+  &__sidebar-actions {
+    &--open,
+    &--close {
+      @media screen and (max-width: 300px) {
+        margin-left: 0.8rem;
+      }
+    }
+  }
+}
