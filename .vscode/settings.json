@@ -1,0 +1,15 @@
+{
+  "[prisma]": { "editor.defaultFormatter": "Prisma.prisma" },
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "dont",
+    "Googlemessages",
+    "lazyload",
+    "letschat",
+    "Modernizr",
+    "reduxjs",
+    "signin",
+    "signup",
+    "Videocam"
+  ]
+}
