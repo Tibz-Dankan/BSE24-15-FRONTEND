@@ -12,7 +12,7 @@ import { MdSettings } from "react-icons/md";
 import { BsFillChatTextFill } from "react-icons/bs";
 import { MdExplore } from "react-icons/md";
 import { closeSideBar } from "../../../store/actions/sideBar";
-import styles from "./SideBar.module.scss";
+import styles from "./Sidebar.module.scss";
 
 const SideBar = () => {
   const dispatch = useDispatch();
